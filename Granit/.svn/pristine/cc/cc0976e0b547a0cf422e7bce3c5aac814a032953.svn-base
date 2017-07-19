@@ -1,0 +1,329 @@
+
+/* Cadastro de usuários. Pelo menos um usuário deve ser criado inicialmente */
+INSERT INTO usuario(idUsuario, login, senha, nome) VALUES(1, 'admin', '9j6Vy8+0W9U=','administrador') ; 
+
+
+
+/* Cadastro de perfil */
+insert into perfil (idPerfil,descricao,nome) values(1,'Administrador do sistema', 'Administrador') ;
+
+insert into perfil (idPerfil,descricao,nome) values(2,'Usuário padrão', 'Padrão') ;
+
+
+INSERT INTO usuario_perfil(usuarios_idUsuario, perfis_idPerfil) VALUES(1, 1) ; 
+
+
+
+/* Cadastro de funcionalidades inicio. 
+ * Para as funcionalidades de login não há restrição entre admin e padrão. Por isso que só precisa 
+ * do registro com operação = null*/
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(1, '/logonAction', 'login', null) ;
+
+
+/* Funcionalidades de cadastro de usuários*/
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(101, '/usuarioAction', 'Cadastro de Usuários', null) ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(102, '/usuarioAction', 'Cadastro de Usuários', 'abrir') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(103, '/usuarioAction', 'Cadastro de Usuários', 'cancelarIncluir') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(104, '/usuarioAction', 'Cadastro de Usuários', 'adicionar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(105, '/usuarioAction', 'Cadastro de Usuários', 'abrirConsulta') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(106, '/usuarioAction', 'Cadastro de Usuários', 'processarConsulta') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(107, '/usuarioAction', 'Cadastro de Usuários', 'voltarDetalhar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(108, '/usuarioAction', 'Cadastro de Usuários', 'processarExcluir') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(109, '/usuarioAction', 'Cadastro de Usuários', 'abrirAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(110, '/usuarioAction', 'Cadastro de Usuários', 'cancelarAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(111, '/usuarioAction', 'Cadastro de Usuários', 'processarAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(112, '/usuarioAction', 'Cadastro de Usuários', 'detalhar') ;
+
+
+
+/* Funcionalidades de cadastro de clientes*/
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(201,'/clienteAction', 'Cadastro de Clientes', null) ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(202,'/clienteAction', 'Cadastro de Clientes', 'detalhar') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(203,'/clienteAction', 'Cadastro de Clientes', 'processarExcluir') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(204,'/clienteAction', 'Cadastro de Clientes', 'abrirAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(205, '/clienteAction', 'Cadastro de Clientes', 'processarAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(206, '/clienteAction', 'Cadastro de Clientes', 'abrir') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(207, '/clienteAction', 'Cadastro de Clientes', 'carregarMunicipios') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(208, '/clienteAction', 'Cadastro de Clientes', 'carregarMunicipiosAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(209, '/clienteAction', 'Cadastro de Clientes', 'adicionar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(210, '/clienteAction', 'Cadastro de Clientes', 'cancelarIncluir') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(211, '/clienteAction', 'Cadastro de Clientes', 'cancelarAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(212, '/clienteAction', 'Cadastro de Clientes', 'abrirConsulta') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(213, '/clienteAction', 'Cadastro de Clientes', 'processarConsulta') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(214, '/clienteAction', 'Cadastro de Clientes', 'voltarDetalhar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(215, '/clienteAction', 'Cadastro de Clientes', 'gerar') ;
+
+
+
+/* Funcionalidades de cadastro de produtos*/
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(301, '/produtoAction', 'Cadastro de Produtos', null) ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(302, '/produtoAction', 'Cadastro de Produtos', 'abrir') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(303, '/produtoAction', 'Cadastro de Produtos', 'cancelar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(304, '/produtoAction', 'Cadastro de Produtos', 'adicionar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(305, '/produtoAction', 'Cadastro de Produtos', 'abrirConsulta') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(306, '/produtoAction', 'Cadastro de Produtos', 'abrirRegistrarEntradaSaida') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(307, '/produtoAction', 'Cadastro de Produtos', 'consultaRegistrarEntradaSaida') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(308, '/produtoAction', 'Cadastro de Produtos', 'registrarEntradaSaidaPasso2') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(309, '/produtoAction', 'Cadastro de Produtos', 'finalizarRegistrarEntradaSaida') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(310, '/produtoAction', 'Cadastro de Produtos', 'filtrarConsulta') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(311, '/produtoAction', 'Cadastro de Produtos', 'exibir') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(312, '/produtoAction', 'Cadastro de Produtos', 'carregarSubTiposIncluir') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(313, '/produtoAction', 'Cadastro de Produtos', 'carregarSubTiposAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(314, '/produtoAction', 'Cadastro de Produtos', 'carregarSubTiposConsulta') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(315, '/produtoAction', 'Cadastro de Produtos', 'carregarSubTiposConsultaRegistroSaidas') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(316, '/produtoAction', 'Cadastro de Produtos', 'fechar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(317, '/produtoAction', 'Cadastro de Produtos', 'processarExcluir') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(318, '/produtoAction', 'Cadastro de Produtos', 'iniciarEditar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(319, '/produtoAction', 'Cadastro de Produtos', 'iniciarRegistroEntradaSaida') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(320, '/produtoAction', 'Cadastro de Produtos', 'atualizar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(321, '/produtoAction', 'Cadastro de Produtos', 'registrarEntradaSaida') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(322, '/produtoAction', 'Cadastro de Produtos', 'associarFornecedor') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(323, '/produtoAction', 'Cadastro de Produtos', 'associarFornecedorAlteracao') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(324, '/produtoAction', 'Cadastro de Produtos', 'removerFornecedorAlteracao') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(325, '/produtoAction', 'Cadastro de Produtos', 'removerFornecedor') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(326, '/produtoAction', 'Cadastro de Produtos', 'relatorios') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(327, '/produtoAction', 'Cadastro de Produtos', 'gerarInsumoMesPorSemana') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(328, '/produtoAction', 'Cadastro de Produtos', 'gerarConsumoMateriaisMes') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(329, '/produtoAction', 'Cadastro de Produtos', 'gerarMateriaPrimaMesPorSemana') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(330, '/produtoAction', 'Cadastro de Produtos', 'gerarConsumoMateriaPrimaMes') ;
+
+
+
+
+
+
+/* Funcionalidades de cadastro de fornecedores */
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(401,'/fornecedorAction', 'Cadastro de Fornecedores', null) ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(402,'/fornecedorAction', 'Cadastro de Fornecedores', 'abrir') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(403,'/fornecedorAction', 'Cadastro de Fornecedores', 'carregarMunicipios') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(404,'/fornecedorAction', 'Cadastro de Fornecedores', 'adicionar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(405, '/fornecedorAction', 'Cadastro de Fornecedores', 'cancelarAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(406, '/fornecedorAction', 'Cadastro de Fornecedores', 'detalhar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(407, '/fornecedorAction', 'Cadastro de Fornecedores', 'voltarDetalhar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(408, '/fornecedorAction', 'Cadastro de Fornecedores', 'abrirConsulta') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(409, '/fornecedorAction', 'Cadastro de Fornecedores', 'processarConsulta') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(410, '/fornecedorAction', 'Cadastro de Fornecedores', 'processarExcluir') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(411, '/fornecedorAction', 'Cadastro de Fornecedores', 'abrirAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(412, '/fornecedorAction', 'Cadastro de Fornecedores', 'processarAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(413, '/fornecedorAction', 'Cadastro de Fornecedores', 'carregarMunicipiosAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(414, '/fornecedorAction', 'Cadastro de Fornecedores', 'cancelarIncluir') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(415, '/fornecedorAction', 'Cadastro de Fornecedores', 'associarProduto') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(416, '/fornecedorAction', 'Cadastro de Fornecedores', 'associarProdutoAlteracao') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(417, '/fornecedorAction', 'Cadastro de Fornecedores', 'removerProdutoAlteracao') ;
+INSERT INTO funcionalidade(idFuncionalidade, actionPath, nome, operacao) VALUES(418, '/fornecedorAction', 'Cadastro de Fornecedores', 'removerProduto') ;
+
+
+
+/*Funcionalidades de cadastro de pedidos */
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(501,'/pedidoAction', 'Cadastro de Pedidos', null) ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(502,'/pedidoAction', 'Cadastro de Pedidos', 'abrir') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(503,'/pedidoAction', 'Cadastro de Pedidos', 'associarProdutoPedido') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(504,'/pedidoAction', 'Cadastro de Pedidos', 'exibirHistoricoProduto') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(505,'/pedidoAction', 'Cadastro de Pedidos', 'adicionar') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(506,'/pedidoAction', 'Cadastro de Pedidos', 'detalhar') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(507,'/pedidoAction', 'Cadastro de Pedidos', 'cancelarIncluir') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(508,'/pedidoAction', 'Cadastro de Pedidos', 'voltarDetalhar') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(509,'/pedidoAction', 'Cadastro de Pedidos', 'processarExcluir') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(510,'/pedidoAction', 'Cadastro de Pedidos', 'abrirAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(511,'/pedidoAction', 'Cadastro de Pedidos', 'removerItemPedidoAlteracao') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(512,'/pedidoAction', 'Cadastro de Pedidos', 'finalizarAlteracao') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(513,'/pedidoAction', 'Cadastro de Pedidos', 'alterar') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(514,'/pedidoAction', 'Cadastro de Pedidos', 'cancelarAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(515,'/pedidoAction', 'Cadastro de Pedidos', 'processarConsulta') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(516,'/pedidoAction', 'Cadastro de Pedidos', 'carregarSubTiposConsulta') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(517,'/pedidoAction', 'Cadastro de Pedidos', 'abrirConsulta') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(518,'/pedidoAction', 'Cadastro de Pedidos', 'finalizarCriacaoInicial') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(519,'/pedidoAction', 'Cadastro de Pedidos', 'removerItemPedido') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(520,'/pedidoAction', 'Cadastro de Pedidos', 'aplicaDescontoPedido') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(521,'/pedidoAction', 'Cadastro de Pedidos', 'imprimir') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(522,'/pedidoAction', 'Cadastro de Pedidos', 'gerar') ;
+
+/*Funcionalidades de cadastro de vendas */
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(601,'/vendaAction', 'Cadastro de Vendas', null) ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(602,'/vendaAction', 'Cadastro de Vendas', 'abrir') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(603,'/vendaAction', 'Cadastro de Vendas', 'abrirAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(604,'/vendaAction', 'Cadastro de Vendas', 'adicionarItem') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(605,'/vendaAction', 'Cadastro de Vendas', 'adicionarItemAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(606,'/vendaAction', 'Cadastro de Vendas', 'removerItem') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(607,'/vendaAction', 'Cadastro de Vendas', 'removerItemAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(608,'/vendaAction', 'Cadastro de Vendas', 'cancelar') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(609,'/vendaAction', 'Cadastro de Vendas', 'processarSalvar') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(610,'/vendaAction', 'Cadastro de Vendas', 'processarAlterar') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(611,'/vendaAction', 'Cadastro de Vendas', 'processarFinalizar') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(612,'/vendaAction', 'Cadastro de Vendas', 'processarExcluir') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(613,'/vendaAction', 'Cadastro de Vendas', 'aplicaDescontoVenda') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(614,'/vendaAction', 'Cadastro de Vendas', 'detalhar') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(615,'/vendaAction', 'Cadastro de Vendas', 'abrirConsulta') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(616,'/vendaAction', 'Cadastro de Vendas', 'processarConsulta') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(617,'/vendaAction', 'Cadastro de Vendas', 'gerar') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(618,'/vendaAction', 'Cadastro de Vendas', 'imprimir') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(619,'/vendaAction', 'Cadastro de Vendas', 'imprimirParaCliente') ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(620,'/vendaAction', 'Cadastro de Vendas', 'aplicaDescontoVendaAlterar') ;
+
+
+
+
+/*Funcionalidades de backup */
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(701,'/backupAction', 'Backup', null) ;
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(702,'/backupAction', 'Backup', 'criarBackup');
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(703,'/backupAction', 'Backup', 'listarBackups');
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(704,'/backupAction', 'Backup', 'downloadBackup');
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(705,'/backupAction', 'Backup', 'processarExcluir');
+    
+
+
+/* Cadastro de funcionalidades fim*/
+
+/* Associação de  funcionalidades -- Perfils Inicio */
+
+/* Administrador */
+
+/*Usuários*/
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(1, 1) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(1, 101) ;
+
+/*Clientes*/
+
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(1, 201) ;
+
+/*Produtos*/
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(1, 301) ;
+
+
+/*Fornecedores*/
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(1, 401) ;
+
+/*Pedidos*/
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(1, 501) ;
+
+/*Vendas*/
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(1, 601) ;
+
+/* Backup*/
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(1, 701) ;
+
+
+/* Padrão */
+/*Logon*/
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 1) ;
+
+
+/* As operações de usuários só são utilizadas pelo Admin*/
+
+/*Clientes*/
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 202) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 204) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 205) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 206) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 207) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 208) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 209) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 210) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 211) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 212) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 213) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 214) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 215) ;
+
+
+/*Produtos*/
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 302) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 303) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 304) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 305) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 306) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 307) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 308) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 309) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 310) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 311) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 312) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 313) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 314) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 315) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 316) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 318) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 319) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 320) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 321) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 322) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 323) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 324) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 325) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 326) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 327) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 328) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 329) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 330) ;
+
+
+
+/*Fornecedores*/
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 402) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 403) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 404) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 405) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 406) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 407) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 408) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 409) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 411) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 412) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 413) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 414) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 415) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 416) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 417) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 418) ;
+
+/*Pedidos */
+
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 502) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 503) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 504) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 505) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 506) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 507) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 508) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 510) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 511) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 512) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 513) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 514) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 515) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 516) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 517) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 518) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 519) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 520) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 521) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 522) ;
+
+
+/*Vendas */
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 602) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 603) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 604) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 605) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 606) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 607) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 608) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 609) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 610) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 611) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 613) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 614) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 615) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 616) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 617) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 618) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 619) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 620) ;
+
+/*Backup */
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 702) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 703) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 704) ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 705) ;
+
+/* Associação de  funcionalidades -- Perfils Fim */

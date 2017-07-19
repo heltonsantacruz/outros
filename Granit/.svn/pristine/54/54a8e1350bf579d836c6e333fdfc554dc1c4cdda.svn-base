@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>    
+<!DOCTYPE tiles-definitions PUBLIC
+   "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+   "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+   
+<tiles-definitions>
+
+	<!-- *********************  INICIO - LAYOUTS GERAIS ********************** --> 
+  	<!-- Definição do layout geral -->
+  	<definition name="layout.master" path="/WEB-INF/layout/masterLayout.jsp">
+        <put name="head"      value="/WEB-INF/comum/head.jsp" />
+    	<put name="topo"      value="/WEB-INF/comum/topo.jsp" />
+    	<put name="menu"      value="/WEB-INF/comum/menu.jsp" />
+      	<put name="conteudo"  value="/WEB-INF/comum/blank.jsp" />
+    	<put name="rodape"    value="/WEB-INF/comum/rodape.jsp" />
+  	</definition>
+  <!-- *********************  TERMINO - LAYOUTS GERAIS ********************* -->
+  
+  <!-- *********************  INICIO - DEFINIÇÃO DAS TELAS  **************** -->
+  	<definition name="tela.index" extends="layout.master">
+        <put name="navegacao" value="" />
+  	</definition>
+  	
+  	<definition name="tela.funcionalidade.nao.permitida.perfil" extends="layout.master">
+        <put name="navegacao" value="" />
+         <put name="conteudo" value="/WEB-INF/comum/funcionalidadeNaoPermitidaParaPerfil.jsp" /> 
+  	</definition>
+  	
+
+    <definition name="tela.sucesso" extends="layout.master">
+        <put name="navegacao" value="" />   
+        <put name="conteudo" value="/WEB-INF/comum/sucesso.jsp" /> 
+    </definition>
+    
+    
+    <definition name="tela.erroGeral" extends="layout.master">
+        <put name="navegacao" value="" />		       
+        <put name="conteudo" value="/WEB-INF/comum/erroGeral.jsp" /> 
+    </definition>
+    
+  <!-- *********************  TELAS DE LOGON  **************** -->
+
+	<definition name="tela.logon.abrir" extends="layout.master">
+		<put name="menu" value="" />
+    	<put name="navegacao" value="" />   
+       <put name="conteudo" value="/WEB-INF/paginas/logon/logon.jsp" />           
+    </definition>
+    
+    <definition name="tela.logon.alterar" extends="layout.master">
+		<put name="menu" value="" />
+    	<put name="navegacao" value="" />   
+       <put name="conteudo" value="/WEB-INF/paginas/logon/logonAlterar.jsp" /> 
+    </definition>
+
+ <!-- *********************  TELAS DE USUARIO  **************** -->
+
+	<definition name="tela.usuario.cadastramento" extends="layout.master">
+        <put name="navegacao" value="Cadastro > Usuário" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/usuario/cadastroUsuario.jsp" /> 
+	</definition>
+
+    <definition name="tela.usuario.consulta" extends="layout.master">
+        <put name="navegacao" value="Consultar > Usuário" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/usuario/consultaUsuario.jsp" /> 
+    </definition>
+    
+    <definition name="tela.usuario.alteracao" extends="layout.master">
+        <put name="navegacao" value="Alterar > Usuário" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/usuario/alterarUsuario.jsp" /> 
+    </definition>
+    
+    <definition name="tela.usuario.detalhar" extends="layout.master">
+        <put name="navegacao" value="Detalhar > Usuário" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/usuario/detalharUsuario.jsp" /> 
+    </definition>  
+    
+
+ <!-- ********************* FIM TELAS DE USUARIO  **************** -->
+
+
+
+  <!-- *********************  TELAS DE CLIENTE  **************** -->
+ 	<definition name="tela.cliente.cadastramento" extends="layout.master">
+        <put name="navegacao" value="Cadastro > Cliente" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/cliente/cadastroCliente.jsp" /> 
+    </definition>
+
+    <definition name="tela.cliente.cadastramento" extends="layout.master">
+        <put name="navegacao" value="Cadastro > Cliente" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/cliente/cadastroCliente.jsp" /> 
+    </definition>
+    <definition name="tela.cliente.alteracao" extends="layout.master">
+        <put name="navegacao" value="Alterar > Cliente" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/cliente/alterarCliente.jsp" /> 
+    </definition>
+    <definition name="tela.cliente.detalhar" extends="layout.master">
+        <put name="navegacao" value="Detalhar > Cliente" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/cliente/detalharCliente.jsp" /> 
+    </definition>
+    <definition name="tela.cliente.consulta" extends="layout.master">
+        <put name="navegacao" value="Consultar > Cliente" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/cliente/consultaCliente.jsp" /> 
+    </definition>
+
+
+ <!-- ********************* FIM TELAS DE CLIENTE  **************** -->
+
+
+  <!-- *********************  TELAS DE FORNECEDOR  **************** -->
+ 	<definition name="tela.fornecedor.cadastramento" extends="layout.master">
+        <put name="navegacao" value="Cadastro > Fornecedor" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/fornecedor/cadastroFornecedor.jsp" /> 
+    </definition>
+  
+    <definition name="tela.fornecedor.alteracao" extends="layout.master">
+        <put name="navegacao" value="Alterar > Fornecedor" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/fornecedor/alterarFornecedor.jsp" /> 
+    </definition>
+    <definition name="tela.fornecedor.detalhar" extends="layout.master">
+        <put name="navegacao" value="Detalhar > Fornecedor" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/fornecedor/detalharFornecedor.jsp" /> 
+    </definition>
+    <definition name="tela.fornecedor.consulta" extends="layout.master">
+        <put name="navegacao" value="Consultar > Fornecedor" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/fornecedor/consultaFornecedor.jsp" /> 
+    </definition>
+
+
+ <!-- ********************* FIM TELAS DE FORNECEDOR  **************** -->
+
+
+
+	<!-- *********************  TELAS DE PRODUTO  **************** -->
+    <definition name="tela.produto.cadastramento" extends="layout.master">
+        <put name="navegacao" value="Cadastro > Produto" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/produto/cadastroProduto.jsp" /> 
+    </definition>
+    <definition name="tela.produto.consulta" extends="layout.master">
+        <put name="navegacao" value="Consultar > Produto" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/produto/consultaProduto.jsp" /> 
+    </definition>
+    <definition name="tela.produto.detalhar" extends="layout.master">
+        <put name="navegacao" value="Detalhar > Produto" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/produto/detalharProduto.jsp" /> 
+    </definition>
+    <definition name="tela.produto.editar" extends="layout.master">
+        <put name="navegacao" value="Alterar > Produto" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/produto/alterarProduto.jsp" /> 
+    </definition>  
+    <definition name="tela.produto.registrarEntradaSaida" extends="layout.master">
+        <put name="navegacao" value="Registro de Entrada/Saída de Estoque > Produto" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/produto/registroEntradaSaidaProduto.jsp" /> 
+    </definition>
+    
+    <definition name="tela.produto.relatorios" extends="layout.master">
+        <put name="navegacao" value="Relatórios de Produtos" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/produto/relatoriosProduto.jsp" /> 
+    </definition>
+    
+    <definition name="tela.produto.registroEntradaSaidaProdutosPasso1" extends="layout.master">
+        <put name="navegacao" value="Registro de Saídas de Estoque > Passo 1" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/produto/registroEntradaSaidaProdutosPasso1.jsp" /> 
+    </definition>
+    
+    <definition name="tela.produto.registroEntradaSaidaProdutosPasso2" extends="layout.master">
+        <put name="navegacao" value="Registro de Saídas de Estoque > Passo 2" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/produto/registroEntradaSaidaProdutosPasso2.jsp" /> 
+    </definition>
+    
+    <definition name="tela.produto.consulta.relatorio.entrada.saida" extends="layout.master">
+        <put name="navegacao" value="Relatórios > Produtos > Entradas/Saidas" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/produto/consultaRelatorioEntradaSaidaProduto.jsp" /> 
+    </definition>
+    
+    
+    
+    
+    <!-- *********************  TELAS DE PEDIDO  **************** -->
+ 	<definition name="tela.pedido.cadastramento" extends="layout.master">
+        <put name="navegacao" value="Cadastro > Pedido" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/pedido/cadastroPedido.jsp" /> 
+    </definition>
+  
+    <definition name="tela.pedido.alteracao" extends="layout.master">
+        <put name="navegacao" value="Alterar > Pedido" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/pedido/alterarPedido.jsp" /> 
+    </definition>
+    <definition name="tela.pedido.detalhar" extends="layout.master">
+        <put name="navegacao" value="Detalhar > Pedido" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/pedido/detalharPedido.jsp" /> 
+    </definition>
+    <definition name="tela.pedido.consulta" extends="layout.master">
+        <put name="navegacao" value="Consultar > Pedido" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/pedido/consultaPedido.jsp" /> 
+    </definition>
+
+  <!-- *********************  TELAS DE VENDAS  **************** -->
+    <definition name="tela.venda.cadastramento" extends="layout.master">
+        <put name="navegacao" value="Vendas > Nova Venda" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/venda/cadastroVenda.jsp" /> 
+    </definition>
+    <definition name="tela.venda.formaspagamemento" extends="layout.master">
+        <put name="navegacao" value="Vendas > Nova Venda" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/venda/formaPagamentoVenda.jsp" /> 
+    </definition>     
+    
+    <definition name="tela.venda.validacao.inadimplencia" extends="layout.master">
+        <put name="navegacao" value="Vendas > Nova Venda > Validação de Inadimplência" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/venda/validacaoVendaInadimplencia.jsp" /> 
+    </definition>     
+        <definition name="tela.venda.finalizacao" extends="layout.master">
+        <put name="navegacao" value="Vendas > Nova Venda" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/venda/finalizacaoVenda.jsp" /> 
+    </definition>    
+    
+     <!-- *********************  TELAS DE CONSULTAR VENDAS  **************** -->
+    <definition name="tela.venda.consulta" extends="layout.master">
+        <put name="navegacao" value="Vendas > Consultar" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/venda/consultaVenda.jsp" /> 
+    </definition>
+    <definition name="tela.venda.detalhar" extends="layout.master">
+        <put name="navegacao" value="Vendas > Detalhar Venda" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/venda/detalharVenda.jsp" /> 
+    </definition>
+    <definition name="tela.venda.detalhar.excluir" extends="layout.master">
+        <put name="navegacao" value="Vendas > Confirmar Exclusão de Venda" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/venda/detalharVendaExcluir.jsp" /> 
+    </definition>   
+    <definition name="tela.venda.ticket" extends="layout.master">
+        <put name="navegacao" value="Vendas > Ticket Venda" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/venda/ticketVenda.jsp" /> 
+    </definition>     
+    
+    
+    <!-- *********************  TELAS DE ALTERAR VENDAS  **************** -->
+    <definition name="tela.venda.alteracao" extends="layout.master">
+        <put name="navegacao" value="Vendas > Alterar Venda" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/venda/alterarVenda.jsp" /> 
+    </definition>
+    <definition name="tela.venda.formaspagamemento.alterar" extends="layout.master">
+        <put name="navegacao" value="Vendas > Alterar Venda" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/venda/alterar/formaPagamentoVenda.jsp" /> 
+    </definition>     
+    
+    <definition name="tela.venda.validacao.inadimplencia.alterar" extends="layout.master">
+        <put name="navegacao" value="Vendas > Alterar Venda > Validação de Inadimplência" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/venda/alterar/validacaoVendaInadimplencia.jsp" /> 
+    </definition>     
+        <definition name="tela.venda.finalizacao.alterar" extends="layout.master">
+        <put name="navegacao" value="Vendas > Alterar Venda" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/venda/alterar/finalizacaoVenda.jsp" /> 
+    </definition>    
+
+ <!-- ********************* FIM TELAS DE PEDIDO  **************** -->
+  
+  
+  <!-- *********************  TELAS DE BACKUP  **************** -->
+
+    <definition name="tela.listar.backup" extends="layout.master">
+        <put name="navegacao" value="Backup > Visualizar backups" />		       
+        <put name="conteudo" value="/WEB-INF/paginas/backup/listarBackups.jsp" /> 
+    </definition> 
+  
+</tiles-definitions>

@@ -1,0 +1,200 @@
+/* Definicao de estilos especificos */
+@import url("displaytag.css");
+
+* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    list-style: none;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+div#container {
+    width: 1000px;
+    margin: auto;
+    background: #FFF url(../images/bg_menu_vertical.png) repeat-y;
+    text-align: left;
+    overflow: hidden;
+}
+
+div#menuVertical{
+    width: 161px;
+    margin-left:0px;
+    float: left;
+}
+
+div#conteudoDireito {
+    width: 616px; 
+    margin: auto;
+    background-color: #FFF;
+    text-align: left;
+    float: right;
+}
+
+div.divMessagesMessage {
+    background-color: #BDE5F8;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+    margin: 10px 2% 0 3%; 
+	display: block;	
+    width: 95%;
+}
+
+div.titulo{
+    margin: 5px 5px 15px 5px;
+    padding-left: 0px;
+    height: 15px; 
+    text-align: left;  
+    font-size: 12px;
+    font-weight: bold;
+    border-bottom: #FFDEAD solid 1px;
+}
+
+div.familiaTitulo {
+    font-size: 12px;
+    font-weight: normal;
+    float: left;
+    text-align: left;
+}
+div.familiaEtapa {   
+    text-align: right;
+}
+div.familia {
+	margin: 5px 5px 15px 5px;
+    height: 16px;
+    border-bottom: 1px solid #D5CEAE;
+    background-color: #EFECE1;       
+}
+
+fieldset {	
+	display: block;
+	margin: 15px 3% 15px 3%;
+	padding: 10px 10px 10px 10px;
+    border: 1px solid #000;
+}
+
+div.div_bloco {
+	display: inline-block;
+	clear: both;	
+	padding-bottom: 5px;		
+}
+
+div.div_bloco_1 {
+	display: inline-block;
+	float: left;
+	clear: left;
+	padding-bottom: 5px;	
+	width: 50%;
+}
+
+div.div_bloco_2 {
+	display: inline-block;
+	float:left;
+	margin-left: 5px;
+	padding-bottom: 5px;
+}
+
+div.div_bloco_3 {
+    display: inline-block;
+    float: left;
+    clear: left;
+    padding-bottom: 5px;    
+    width: 35%;
+}
+
+div.div_bloco_centralizado {
+    display: inline-block;
+    clear: both;    
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+div.div_texto {	
+	float: left;
+	clear:right;
+	text-align: left;
+}
+
+label.form {
+	float: left;	
+	width: 150px;
+	text-align: right;
+	padding-right: 5px;	
+	margin: 1px;
+	color: #4C4436;
+	font-weight: bold;
+}
+
+label.form_2 {
+	margin: 15px;
+	color: #4C4436;
+	font-weight: bold;
+}
+
+div.div_centralizado {
+    text-align: center; 
+}
+
+div.menuVertical_titulo {
+    color: Maroon;
+    font-size: 15px;  
+    margin-left: 8px;
+    margin-top: 11px;
+}
+
+p.menuVertical_itens {
+    margin-top: 5px;
+    padding: 10px;
+    clear: both;
+}
+
+p.erro {
+	color: red;
+    padding-left: 30px;
+    font-size:12px;
+	font-weight:bold;
+	text-align:left;
+}
+
+p.mensagem {
+	color: blue;
+    padding-left: 30px;
+    font-size:12px;
+	font-weight:bold;
+	text-align:left;
+}
+
+p.erroGeral {
+    color: red;
+    text-align: center;
+}
+
+div.botoes {
+    width: 100%;
+    height: 25px;
+/*  float: left;*/
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+div.div_blococentral {
+    clear: both;    
+    margin:0;
+    margin-bottom: 10px;    
+}
+
+div.div_blococentral label.form {
+    width: 50%;
+}
+
+span.monospaced {
+    font-family: monospace;
+    font-size: 14;
+}
+
+div.margem {
+	margin: 15px 3% 15px 3%;
+}
+               

@@ -1,0 +1,21 @@
+mascaras.js
+
+Para utilizar a máscara o desenvolvedor deve:
+ - Carregar esse arquivo em seu html dentro do head:
+	Exemplo: <script language="JavaScript" src="javascript/mascaras.js"></script>
+ - Carregá-lo no body da página html:
+	Exemplo: <body onload="Mascaras.carregar();">
+
+O código vai percorrer toda a página procurando as marcações abaixo nos inputs e aplicando a máscara.
+
+Para utilizar as máscaras dentro dos inputs o desenvolvedor deve insirir os seguintes atributos:
+ - "tipo" = pode ser "numerico" ou "decimal";
+ - "mascara" = a máscara a ser usada. Coloque # nas posições dos caracteres;
+ - "casasdecimais" = para o caso do tipo ser decimal. Aqui deve ser informado quantas casas decimais vão ser usadas;
+ - "negativo" = isso define um sinal de negativo no inicio do valor.
+	Exemplos:
+	<input type="text" name="valor" tipo="numerico">
+	<input type="text" name="valor" tipo="numerico" negativo=true>
+	<input type="text" name="valor" tipo="decimal" negativo=true casasdecimais=3>
+	<input type="text" name="data" tipo="numerico" mascara="##/##/####">
+	<input type="text" name="cpf" tipo="numerico" mascara="###.###.###-##">

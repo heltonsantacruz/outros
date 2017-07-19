@@ -1,0 +1,25 @@
+1)No dia 04/05/2010 foi solicitado pela cliente que também fosse possível realizar uma busca de cliente 
+por telefone. Não faz muito sentido. Porém é um ponto a ser discutido com o cliente.
+
+2)Também foi solicitado pela cliente que fosse feito um relatório que fosse exibido todos os clientes 
+e seus respectivos endereços. Verificar a possibilidade e como irá tratar.
+
+
+----------------------------
+Almoxarifado e Fornecedores
+---------------------------
+-No cadastro de produtos deverá ser realizada a associação com o(s) fornecedores e vice-versa
+-Será utilizado o procedimento de adicionar produto na venda do sisvendas
+-Para registrar o valor e a data da última compra de um produto a um fornecedor será criada uma nova tabela que terá os campos:
+*idProduto, iDFornecedor, DataUltCompra, ValorUnitario da última compra desse produto. 
+-O relacionamento N-M(Produto x Fornecedor)será definido por uma entidade qu conterá os campos acima.
+
+----------------
+Compras
+----------------
+Lembretes para implementação.
+Quando for feita uma compra de um produto, caso não tenha um fornecedor específico associado ao produto, essa associação será feita 
+no momento da compra.Na tela terá a opção de mostrar todos os fornecedores ou apenas os associados ao produto. 
+
+
+

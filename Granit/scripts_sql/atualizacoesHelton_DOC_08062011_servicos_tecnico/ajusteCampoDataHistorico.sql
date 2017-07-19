@@ -1,0 +1,1 @@
+ALTER TABLE historicoproduto MODIFY COLUMN data date NOT NULL;

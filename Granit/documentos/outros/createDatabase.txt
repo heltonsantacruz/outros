@@ -1,0 +1,16 @@
+Logar no mysql como root e depois seguir os passos:
+
+mysql> create database granitdb;
+Query OK, 1 row affected (0.09 sec)
+
+mysql> create user granit identified by 'gr@n!t';
+Query OK, 0 rows affected (0.34 sec)
+
+mysql> use granitdb;
+Database changed
+mysql> grant all privileges on *.* to granit@'localhost' identified by 'gr@n!t';
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.09 sec)

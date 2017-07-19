@@ -1,0 +1,457 @@
+package br.com.granit.persistencia.to;
+
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import br.com.granit.util.Constantes;
+import br.com.granit.util.Formatador;
+
+@Entity
+@Table(name="venda")
+@NamedQueries({
+	@NamedQuery(
+		name="vendasNoAno", 
+		query="SELECT venda FROM VendaTO venda WHERE" +
+			" numeroPedido IS NOT NULL AND numeroPedido like :ano")
+})
+public class VendaTO {
+	
+	private Integer idVenda;
+	
+	private Date dataVenda;
+	
+	private List<ItemVendaTO> itens;
+	
+	private List<ItemBeneficiamentoVendaTO> itensBeneficiamento;
+	
+	private ClienteTO cliente;
+	
+	private BigDecimal desconto;
+	
+	private char situacao; // P - PENDENTE; F - FINALIZADA; C - CANCELADA
+	
+	private Date prazoEntrega;
+	
+	private String observacao;
+	
+	private String numeroPedido;
+	
+	private BigDecimal valorServicoMontagem;
+	
+	private Boolean produtosEntregues;
+	
+	public Boolean isProdutosEntregues() {
+		if (produtosEntregues == null){
+			return false;
+		}
+		return produtosEntregues;
+	}
+
+	public void setProdutosEntregues(Boolean produtosEntregues) {
+		if (produtosEntregues == null){
+			produtosEntregues = false;
+		}
+		this.produtosEntregues = produtosEntregues;
+	}
+
+	public BigDecimal getValorServicoMontagem() {
+		return valorServicoMontagem;
+	}
+
+	public void setValorServicoMontagem(BigDecimal valorServicoMontagem) {
+		this.valorServicoMontagem = valorServicoMontagem;
+	}
+
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinColumn(name="idVenda")
+	public List<ItemBeneficiamentoVendaTO> getItensBeneficiamento() {
+		return itensBeneficiamento;
+	}
+
+	public void setItensBeneficiamento(
+			List<ItemBeneficiamentoVendaTO> itensBeneficiamento) {
+		this.itensBeneficiamento = itensBeneficiamento;
+	}
+
+	/*
+	 * Formas de pagamento e valores:
+	 * 
+	 * SE O VALOR FOR NULO OU ZERO É PQ O USUARIO NAO OPTOU POR ESSE TIPO DE FORMA DE PAGAMENTO
+	 * */	
+	private BigDecimal valorAVista;
+	
+	private BigDecimal valorAberto;
+	
+	//Só será preenchido quando o usuário escolher a opcao em aberto.
+	private Integer numeroParcelas;
+	
+	private BigDecimal valorCheque;
+	
+	private BigDecimal valorCredito;
+	
+	private BigDecimal valorBoleto;
+		
+	/**
+	 * @return the desconto
+	 */
+	public BigDecimal getDesconto() {
+		return desconto;
+	}
+
+	/**
+	 * @param desconto the desconto to set
+	 */
+	public void setDesconto(BigDecimal desconto) {
+		this.desconto = desconto;
+	}
+
+	/**
+	 * @return the idVenda
+	 */
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	public Integer getIdVenda() {
+		return idVenda;
+	}
+
+	/**
+	 * @param idVenda the idVenda to set
+	 */
+	public void setIdVenda(Integer idVenda) {
+		this.idVenda = idVenda;
+	}
+
+	/**
+	 * @return the dataVenda
+	 */
+	@Column(nullable=false)
+	@Temporal(TemporalType.DATE)
+	public Date getDataVenda() {
+		return dataVenda;
+	}
+
+	/**
+	 * @param dataVenda the dataVenda to set
+	 */
+	public void setDataVenda(Date dataVenda) {
+		this.dataVenda = dataVenda;
+	}
+
+	@Transient
+	public String getDataVendaFormatada(){
+		if (dataVenda == null)
+			return "";
+		return Formatador.converterDataString(dataVenda, Formatador.FORMATO_DATA_PADRAO);
+	}
+	
+	@Transient
+	public String getPrazoEntregaFormatado(){
+		if (prazoEntrega == null)
+			return "";
+		return Formatador.converterDataString(prazoEntrega, Formatador.FORMATO_DATA_PADRAO);
+	}
+	/**
+	 * @return the itens
+	 */
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinColumn(name="idVenda")
+	public List<ItemVendaTO> getItens() {
+		return itens;
+	}
+
+	/**
+	 * @param itens the itens to set
+	 */	
+	public void setItens(List<ItemVendaTO> itens) {
+		this.itens = itens;
+	}
+
+	/**
+	 * @return the cliente
+	 */
+	@ManyToOne 
+	@JoinColumn(name="idCliente")
+	public ClienteTO getCliente() {
+		return cliente;
+	}
+
+	/**
+	 * @param cliente the cliente to set
+	 */
+	public void setCliente(ClienteTO cliente) {
+		this.cliente = cliente;
+	}
+	
+	@Transient
+	public BigDecimal getSubTotal(){
+		BigDecimal resultado = new BigDecimal(0);
+		if (valorServicoMontagem != null){
+			resultado = resultado.add(this.valorServicoMontagem);
+		}
+		if (getItens() != null){
+			for (ItemVendaTO item : getItens()) {
+				resultado = resultado.add(item.getPreco());
+			}
+		}
+		if (getItensBeneficiamento() != null){
+			for (ItemBeneficiamentoVendaTO item : getItensBeneficiamento()) {
+				resultado = resultado.add(item.getValor());
+			}
+		}
+		return resultado;
+	}
+	
+	@Transient
+	public BigDecimal getTotal(){
+		BigDecimal resultado = new BigDecimal(0);
+		if (valorServicoMontagem != null){
+			resultado = resultado.add(this.valorServicoMontagem);
+		}
+		if (getItens() != null){
+			for (ItemVendaTO item : getItens()) {
+				resultado = resultado.add(item.getPreco());
+			}
+		}
+		if (getItensBeneficiamento() != null){
+			for (ItemBeneficiamentoVendaTO item : getItensBeneficiamento()) {
+				resultado = resultado.add(item.getValor());
+			}
+		}
+		if (getDesconto() != null)
+			resultado = resultado.subtract(getDesconto());
+		
+		return resultado;
+	}
+	
+	@Transient
+	public String getTotalFormatado(){		
+		if (getTotal() == null)
+			return "";
+		return Formatador.currency(getTotal().doubleValue());
+	}
+	
+	@Transient
+	public String getDescontoFormatado(){
+		if (getDesconto() == null)
+			return "";
+		return Formatador.currency(getDesconto().doubleValue());
+	}
+	
+	@Transient
+	public String getSubTotalFormatado(){
+		if (getSubTotal() == null)
+			return "";
+		return Formatador.currency(getSubTotal().doubleValue());
+	}
+		
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((idVenda == null) ? 0 : idVenda.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		final VendaTO other = (VendaTO) obj;
+		if (idVenda == null) {
+			if (other.idVenda != null)
+				return false;
+		} else if (!idVenda.equals(other.idVenda))
+			return false;
+		return true;
+	}
+
+	public char getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(char situacao) {
+		this.situacao = situacao;
+	}
+
+	public BigDecimal getValorAVista() {
+		return valorAVista;
+	}
+
+	public void setValorAVista(BigDecimal valorAVista) {
+		this.valorAVista = valorAVista;
+	}
+
+	public BigDecimal getValorAberto() {
+		return valorAberto;
+	}
+
+	public void setValorAberto(BigDecimal valorAberto) {
+		this.valorAberto = valorAberto;
+	}
+
+	public Integer getNumeroParcelas() {
+		return numeroParcelas;
+	}
+
+	public void setNumeroParcelas(Integer numeroParcelas) {
+		this.numeroParcelas = numeroParcelas;
+	}
+
+	public BigDecimal getValorCheque() {
+		return valorCheque;
+	}
+
+	public void setValorCheque(BigDecimal valorCheque) {
+		this.valorCheque = valorCheque;
+	}
+
+	public BigDecimal getValorCredito() {
+		return valorCredito;
+	}
+
+	public void setValorCredito(BigDecimal valorCredito) {
+		this.valorCredito = valorCredito;
+	}
+
+	public BigDecimal getValorBoleto() {
+		return valorBoleto;
+	}
+
+	public void setValorBoleto(BigDecimal valorBoleto) {
+		this.valorBoleto = valorBoleto;
+	}
+	
+	@Transient
+	public String getSituacaoVendaFormatada(){
+		if (this.situacao == Constantes.VENDA_FINALIZADA){
+			return "Finalizada";
+		}else if (this.situacao == Constantes.VENDA_PENDENTE){
+			return "Pendente";
+		}else{
+			return "";
+		}
+	}
+	
+	@Transient
+	public String getValorVistaFormatado(){
+		return formata(this.valorAVista);
+	}
+	
+	@Transient
+	public String getValorServicoMontagemFormatado(){
+		return formata(this.valorServicoMontagem);
+	}
+	
+	@Transient
+	public String getValorAbertoFormatado(){
+		return formata(this.valorAberto);
+	}
+	
+	@Transient
+	public String getValorCreditoFormatado(){
+		return formata(this.valorCredito);
+	}
+	
+	@Transient
+	public String getValorBoletoFormatado(){
+		return formata(this.valorBoleto);
+	}
+	
+	@Transient
+	public String getNumeroPedidoFormatado(){
+		if (numeroPedido != null && !numeroPedido.isEmpty()){
+			return numeroPedido;
+		}
+		return "";
+	}
+	
+	@Transient
+	public String getValorChequeFormatado(){
+		return formata(this.valorCheque);
+	}
+	
+	@Transient
+	public String getPercentualDescontoFormatado(){
+		if (desconto != null && desconto.doubleValue() > 0.0){
+			double percentual = (desconto.doubleValue() * 100) / getSubTotal().doubleValue();
+			return "(" + Formatador.percentual(percentual) + ")";
+		}
+		return "";
+	}
+	
+	private String formata(BigDecimal valor){
+		if (valor == null || valor.doubleValue() == 0.0)
+			return "";
+		return Formatador.currency(valor.doubleValue());
+	}
+
+	@Temporal(TemporalType.DATE)
+	public Date getPrazoEntrega() {
+		return prazoEntrega;
+	}
+
+	public void setPrazoEntrega(Date prazoEntrega) {
+		this.prazoEntrega = prazoEntrega;
+	}
+
+	public String getObservacao() {
+		return observacao;
+	}
+
+	public void setObservacao(String observacao) {
+		if(observacao != null){
+			this.observacao = observacao.toUpperCase();
+		}
+		else{
+			this.observacao = observacao;
+		}
+		
+	}
+
+	@Column(nullable=false)
+	public String getNumeroPedido() {
+		return numeroPedido;
+	}
+
+	public void setNumeroPedido(String numeroPedido) {
+		this.numeroPedido = numeroPedido;
+	}
+	
+	@Transient
+	public String getProdutosEntreguesFormatado(){
+		if (isProdutosEntregues()){
+			return "Sim";
+		}else{
+			return "Não";
+		}
+	}
+}
+
+

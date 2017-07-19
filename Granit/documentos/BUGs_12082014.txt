@@ -1,0 +1,48 @@
+
+
+5)Ajustar a logomarca
+
+6)Ocultamento de produtos
+Alguns produtos foram criados duplicados e não tem como removêmos pois já existem vendas associadas aos mesmos. Dessa forma, para não termos problemas
+relacionados a estoque ou coisa do tipo, Rubi me passará os produtos duplicados para que sejam ocultados da tela de vendas e não permitir que sejam
+feitas mais vendas com esses produtos
+
+7)Tentar ajustar algumas vendas manualmente no banco.
+Rubi ficou de enviar os detalhes de cada um
+
+
+4)Alteração de status - OK
+-Permitir que O Administrador consiga retornar do último status de "Finalizado" para "Pendente". 
+Isso para que ela possa ajustar fianlizações errôneas realizadas pelos usuários
+OBS: Atentar para não modificar a data da realização da venda
+/* Atualização do dia 26/08/2014 */
+INSERT INTO funcionalidade(idFuncionalidade,actionPath, nome, operacao) VALUES(629,'/vendaAction', 'Cadastro de Vendas', 'processarRetornarStatusPendente') ;
+INSERT INTO perfil_funcionalidade(perfis_idPerfil, funcionalidades_idFuncionalidade) VALUES(2, 629) ;
+
+
+10)Exclusão de venda finalizada - OK
+Permitir que o Adm possa excluir venda finalizada. Tem que mostrar alerta e verificar voltar o estoque para o que tinha antes.
+Ajustar os logs
+
+
+1)Beneficiamento - OK
+Não está conseguindo remover  item de beneficiamento - 
+
+2)Desconto - OK
+Quando se apaga um desconto, ele dá erro e não atualiza o valor descontado
+
+3)Pedido - OK - Pedir para Rubi fazer um novo teste porque testei e funcionou e lembrar que só atualiza estoque quando finaliza.
+Quando adiciona pedido de "Matéria Prima" ele não está atualizando o  estoque
+
+8)No Cadastro de pedido não está conseguindo dar o desconto. Um erro pe apresentado na tela. OK
+"Florestas Máquinas e Moteres --> 28/07/2014"
+
+
+9)Produtos Entregues - OK
+Colocar um alerta para informar que se marcar "entregue", "Sem Finalizar", não poderá mais alterar nada
+
+11)Finalizar - OK
+Verificcar se tem alerta no Finalizar
+
+12)Backup - OK (Tem que associar no PATH o bin do MySql)
+O backuo não está funcionando e na listagem não está abrindo o arquivo que se está clicando.

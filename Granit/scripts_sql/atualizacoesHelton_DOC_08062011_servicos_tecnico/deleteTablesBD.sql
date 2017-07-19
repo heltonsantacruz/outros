@@ -1,0 +1,41 @@
+
+DELETE FROM itemvenda; 
+DELETE FROM venda  ;
+DELETE FROM itempedido;
+DELETE FROM pedido  ;
+DELETE FROM historicoproduto ;
+DELETE FROM produtofornecedor ;
+DELETE FROM fornecedor ;
+DELETE FROM produto ;
+DELETE FROM subtipoproduto;
+DELETE FROM tipoproduto;
+DELETE FROM cliente ;
+DELETE FROM formapagamento ;
+DELETE FROM municipio ;
+DELETE FROM estado;
+DELETE FROM perfil_funcionalidade;
+DELETE FROM funcionalidade ;
+DELETE FROM usuario_perfil;
+DELETE FROM perfil ;
+DELETE FROM usuario ;
+
+DROP TABLE itemvenda; 
+DROP TABLE venda  ;
+DROP TABLE itempedido;
+DROP TABLE pedido  ;
+DROP TABLE historicoproduto ;
+DROP TABLE produtofornecedor ;
+DROP TABLE fornecedor ;
+DROP TABLE produto ;
+DROP TABLE subtipoproduto;
+DROP TABLE tipoproduto;
+DROP TABLE cliente ;
+DROP TABLE formapagamento ;
+DROP TABLE municipio ;
+DROP TABLE estado;
+DROP TABLE perfil_funcionalidade;
+DROP TABLE funcionalidade ;
+DROP TABLE usuario_perfil;
+DROP TABLE perfil ;
+DROP TABLE usuario ;
+commit

@@ -1,0 +1,16 @@
+
+
+1)Cadastrar os produtos com o estoque inicial do mês em questão.
+Utilizar o relatório de insumo e matéria prima do mês em questão.
+
+2)Cadastrar os fornecedores
+
+3)Cadastrar os clientes
+
+4)Cadastrar vendas e pedidos registrando as datas
+
+5)Quando for utilizar o sistema na real, atualizar os estoques de todos os produtos com o saldo do mes anterior.
+
+
+
+OBS: na tela de alteração de produtos depois de instalado e carregado os históricos iniciais barrara questão da atualização do estoque.

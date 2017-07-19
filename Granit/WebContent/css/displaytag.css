@@ -1,0 +1,206 @@
+table.tableResultadoConsulta {
+	border: 1px solid #000;
+	width: 94%;
+    margin: 0 2% 0 3%;  		
+}
+
+table.tableResultadoConsulta th, table.tableResultadoConsulta td {
+	padding: 2px 4px 2px 4px !important;
+	text-align: left;
+	vertical-align: top;
+}
+
+table.tableResultadoConsulta thead tr {
+	background-image: url(../images/caramelo.jpg);	
+   
+}
+
+table.tableResultadoConsulta thead th {
+    background-image: url(../images/caramelo.jpg); 
+}
+table.tableResultadoConsulta th.sorted {
+	background-color: orange;
+}
+
+table.tableResultadoConsulta th a,th a:visited {
+	color: black;
+}
+
+table.tableResultadoConsulta th a:hover {
+	text-decoration: underline;
+	color: black;
+}
+
+table.tableResultadoConsulta th.sorted a,th.sortable a {
+	background-position: right;
+	display: block;
+	width: 100%;
+}
+
+table.tableResultadoConsulta th.sortable a {
+	background-image: url(../images/displaytag/arrow_off.png);
+}
+
+table.tableResultadoConsulta th.order1 a {
+	background-image: url(../images/displaytag/arrow_down.png);
+}
+
+table.tableResultadoConsulta th.order2 a {
+	background-image: url(../images/displaytag/arrow_up.png);
+}
+
+table.tableResultadoConsulta tr.odd {
+	background-color: #EEE5DE
+}
+
+table.tableResultadoConsulta tr.tableRowEven,tr.even {
+	background-color: #FFF5EE;
+}
+
+
+
+
+
+
+div.exportlinks {
+	background-color: #eee;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+	margin: 2px 0 10px 0;
+	width: 79%;
+}
+
+span.export {
+	padding: 0 4px 1px 20px;
+	display: inline;
+	display: inline-block;
+	cursor: pointer;
+}
+
+span.excel {
+	background-image: url(../images/displaytag/ico_file_excel.png);
+}
+
+span.csv {
+	background-image: url(../images/displaytag/ico_file_csv.png);
+}
+
+span.xml {
+	background-image: url(../images/displaytag/ico_file_xml.png);
+}
+
+span.pdf {
+	background-image: url(../images/displaytag/ico_file_pdf.png);
+}
+
+span.rtf {
+	background-image: url(../images/displaytag/ico_file_rtf.png);
+}
+
+/*span.pagebanner {
+	background-color: #EFECE1;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+    margin: 10px 3% 0px 3%;
+	display: block;
+	border-bottom: none;
+    width: 700px;	
+}
+
+span.pagelinks {
+	background-color: #EFECE1;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+	display: block;
+	border-top: none;
+    margin: 0px 3% 10px 3%;
+    width: 700px;
+}*/
+
+
+span.pagebanner {
+	background-color: #EFECE1;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+    margin: 10px 2% 0 3%; 
+	display: block;
+	border-bottom: none;
+    width: 94%;	
+    
+}
+
+span.pagelinks {
+	background-color: #EFECE1;
+	border: 1px dotted #999;
+	padding: 2px 4px 2px 4px;
+	display: block;
+	border-top: none;
+    margin: 0 2% 0 3%; 
+    width: 94%;
+}
+
+/* textfield */
+
+table.tableResultadoConsulta2 {
+	border: 1px solid #000;
+	width: 94%;
+    margin: 2% 3% 3% 3%;
+    
+      		
+}
+
+table.tableResultadoConsulta2 th, table.tableResultadoConsulta2 td {
+	padding: 2px 4px 2px 4px !important;
+	text-align: left;
+	vertical-align: top;
+    width: 700px;
+    	
+}
+
+table.tableResultadoConsulta2 thead tr {
+    background-image: url(../images/caramelo.jpg); 
+}
+
+table.tableResultadoConsulta2 thead th {
+	background-image: url(../images/caramelo.jpg); 
+    
+}
+table.tableResultadoConsulta2 th.sorted {
+	background-color: orange;
+}
+
+table.tableResultadoConsulta2 th a,th a:visited {
+	color: black;
+}
+
+table.tableResultadoConsulta2 th a:hover {
+	text-decoration: underline;
+	color: black;
+}
+
+table.tableResultadoConsulta2 th.sorted a,th.sortable a {
+	background-position: right;
+	display: block;
+	width: 100%;
+}
+
+table.tableResultadoConsulta2 th.sortable a {
+	background-image: url(../images/displaytag/arrow_off.png);
+}
+
+table.tableResultadoConsulta2 th.order1 a {
+	background-image: url(../images/displaytag/arrow_down.png);
+}
+
+table.tableResultadoConsulta2 th.order2 a {
+	background-image: url(../images/displaytag/arrow_up.png);
+}
+
+table.tableResultadoConsulta2 tr.odd {
+	background-color: #fff
+}
+
+table.tableResultadoConsulta2 tr.tableRowEven,tr.even {
+	background-color: #FFF5EE;
+}
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="windows-1252" ?>  
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"  
+     version="1.0" xmlns="http://java.sun.com/xml/ns/persistence">  
+	<!-- Persistence unit para o banco em arquivo -->
+	<persistence-unit name="JPA" transaction-type="RESOURCE_LOCAL">
+	<!-- <persistence-unit name="JPA" transaction-type="JTA"> -->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<!-- <jta-data-source>java:/DefaultDS</jta-data-source> -->
+		<!-- Classes -->		
+		<class>br.com.granit.persistencia.to.ClienteTO</class>
+		<class>br.com.granit.persistencia.to.EstadoTO</class>
+		<class>br.com.granit.persistencia.to.MunicipioTO</class>
+		<class>br.com.granit.persistencia.to.UsuarioTO</class>
+		<class>br.com.granit.persistencia.to.PerfilTO</class>
+		<class>br.com.granit.persistencia.to.FuncionalidadeTO</class>
+		<class>br.com.granit.persistencia.to.ProdutoTO</class>
+		<class>br.com.granit.persistencia.to.FornecedorTO</class>
+		<class>br.com.granit.persistencia.to.ProdutoFornecedorTO</class>
+		<class>br.com.granit.persistencia.to.HistoricoProdutoTO</class>
+		<class>br.com.granit.persistencia.to.PedidoTO</class>
+		<class>br.com.granit.persistencia.to.ItemPedidoTO</class>
+		<class>br.com.granit.persistencia.to.VendaTO</class>
+		<class>br.com.granit.persistencia.to.ItemVendaTO</class>
+		<class>br.com.granit.persistencia.to.TipoProdutoTO</class>
+		<class>br.com.granit.persistencia.to.SubTipoProdutoTO</class>
+	
+
+		
+		<properties>
+			<!-- Configurações MySQL -->
+			<property name="hibernate.connection.driver_class" 
+					value="org.gjt.mm.mysql.Driver"/>
+			<property name="hibernate.connection.url" 
+					value="jdbc:mysql://127.0.0.1:3306/granitdb?autoReconnect=true"/>
+			<property name="hibernate.connection.username" 
+					value="granit"/>
+			<property name="hibernate.connection.password" 
+					value="gr@n!t"/>
+			<property name="hibernate.dialect" 
+					value="org.hibernate.dialect.MySQLDialect"/>			
+			<property name="hibernate.show_sql" 
+					value="true"/>
+         	<!-- Essa linha abaixo deve ser habilitada apenas na primeira execução do 
+         	sistema --> 
+         	 
+         	<property name="hibernate.hbm2ddl.auto" value="update"/>               	
+         	
+		</properties>
+	</persistence-unit>	
+</persistence>

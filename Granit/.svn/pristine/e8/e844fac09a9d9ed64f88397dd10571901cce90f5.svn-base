@@ -1,0 +1,138 @@
+package br.com.granit.util;
+
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.util.Date;
+
+import br.com.granit.controlador.ControladorHistoricoProduto;
+import br.com.granit.controlador.ControladorProduto;
+import br.com.granit.controlador.ControladorSubTipoProduto;
+import br.com.granit.fachada.Fachada;
+import br.com.granit.persistencia.excecao.JPAInsertException;
+import br.com.granit.persistencia.excecao.JPAUpdateException;
+import br.com.granit.persistencia.to.HistoricoProdutoTO;
+import br.com.granit.persistencia.to.ProdutoTO;
+import br.com.granit.persistencia.to.SubTipoProdutoTO;
+import br.com.granit.persistencia.to.UsuarioTO;
+
+public class TesteRelatoriosProdutos {
+	public static void main(String[] args) {
+		ProdutoTO produto  = criaProduto();
+		criarHistoricos(produto);
+		
+		double mesAnterior = ControladorHistoricoProduto.getInstance()
+		.recuperarEstoqueProdutoPorSemana(
+				produto.getIdProduto(), 12, 2009, 4);
+		
+		double mesAnterior2 = ControladorHistoricoProduto.getInstance()
+		.recuperarEstoqueProdutoPorMes(
+				produto.getIdProduto(), 12, 2009);
+		
+		double mesAtual = ControladorHistoricoProduto.getInstance()
+		.recuperarEstoqueProdutoPorSemana(
+				produto.getIdProduto(), 1, 2010, 4);
+		
+		double mesAtual2 = ControladorHistoricoProduto.getInstance()
+		.recuperarEstoqueProdutoPorMes(
+				produto.getIdProduto(), 1, 2010);
+		
+		double semana1 = ControladorHistoricoProduto.getInstance()
+		.recuperarEstoqueProdutoPorSemana(
+				produto.getIdProduto(), 1, 2010, 1); 
+		double semana2 = ControladorHistoricoProduto.getInstance()
+		.recuperarEstoqueProdutoPorSemana(
+				produto.getIdProduto(), 1, 2010, 2);
+		double semana3 = ControladorHistoricoProduto.getInstance()
+		.recuperarEstoqueProdutoPorSemana(
+				produto.getIdProduto(), 1, 2010, 3);
+		double semana4 = ControladorHistoricoProduto.getInstance()
+		.recuperarEstoqueProdutoPorSemana(
+				produto.getIdProduto(), 1, 2010, 4);
+		
+		System.out.println("JANEIRO Semana 1: "  + semana1 + " de " + CalendarUtil.getInstance().getDtInicioSemana1() + " até " + CalendarUtil.getInstance().getDtFimSemana1());
+		System.out.println("JANEIRO Semana 2: "  + semana2 + " de " + CalendarUtil.getInstance().getDtInicioSemana2() + " até " + CalendarUtil.getInstance().getDtFimSemana2());
+		System.out.println("JANEIRO Semana 3: "  + semana3 + " de " + CalendarUtil.getInstance().getDtInicioSemana3() + " até " + CalendarUtil.getInstance().getDtFimSemana3());
+		System.out.println("JANEIRO Semana 4: "  + semana4 + " de " + CalendarUtil.getInstance().getDtInicioSemana4() + " até " + CalendarUtil.getInstance().getDtFimSemana4());
+		
+		//TODO ERRO AQUI, CORRIGIR!!!!!!
+		System.out.println("Mês Anterior " + mesAnterior + " == " + mesAnterior2);
+		System.out.println("Mês Atual " + mesAtual+ " == " + mesAtual2);
+		
+	}
+
+	private static void criarHistoricos(ProdutoTO produto) {
+		registrarEntrada(produto, "01/01/2010", 100.00);		
+		registrarEntrada(produto, "09/01/2010", 100.00);
+		registrarSaida(produto, "10/01/2010", 150.00);
+		registrarSaida(produto, "15/01/2010", 50.00);
+		registrarSaida(produto, "25/01/2010", 20.00);
+	}
+
+	private static void registrarEntrada(ProdutoTO produto, String dataString, double quantidade) {
+		produto = ControladorProduto.getInstance().get(produto.getIdProduto());
+		HistoricoProdutoTO historico = new HistoricoProdutoTO();
+		
+		historico.setProduto(produto);		
+		historico.setObservacao("Entrada de" + quantidade);
+		historico.setQuantidade(new BigDecimal(quantidade));
+		Date data;
+		try {
+			data = Formatador.converterStringParaDate(dataString, Formatador.FORMATO_DATA_PADRAO);
+			historico.setData(data);
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+		historico.setTipo('E');
+		try {
+			ControladorHistoricoProduto.getInstance().salva(historico);
+			produto.setQtdEstoque(produto.getQtdEstoque() + quantidade);
+			Fachada.getInstance().alterarProduto(produto);
+		} catch (JPAInsertException e) {
+			e.printStackTrace();
+		} catch (JPAUpdateException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static void registrarSaida(ProdutoTO produto, String dataString, double quantidade) {
+		produto = ControladorProduto.getInstance().get(produto.getIdProduto());
+		HistoricoProdutoTO historico = new HistoricoProdutoTO();
+		historico.setProduto(produto);		
+		historico.setObservacao("Saída de" + quantidade);
+		historico.setQuantidade(new BigDecimal(quantidade));
+		Date data;
+		try {
+			data = Formatador.converterStringParaDate(dataString, Formatador.FORMATO_DATA_PADRAO);
+			historico.setData(data);
+		} catch (ParseException e1) {
+			e1.printStackTrace();
+		}
+		historico.setTipo('S');
+		try {
+			ControladorHistoricoProduto.getInstance().salva(historico);
+			produto.setQtdEstoque(produto.getQtdEstoque() - quantidade);
+			Fachada.getInstance().alterarProduto(produto);
+		} catch (JPAInsertException e) {
+			e.printStackTrace();
+		} catch (JPAUpdateException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static ProdutoTO criaProduto() {
+		ProdutoTO existe = null;
+		if ((existe = ControladorProduto.getInstance().get(1)) != null)
+			return existe;
+		ProdutoTO produto = new ProdutoTO();		
+		produto.setDescricao("TESTE");
+		produto.setTipo('C');
+		SubTipoProdutoTO subTipo = ControladorSubTipoProduto.getInstance().get(11);//Granito Nacional
+		produto.setSubTipo(subTipo);
+		produto.setQtdEstoque(2000.00);
+		try {
+			return ControladorProduto.getInstance().salva(produto);
+		} catch (JPAInsertException e) {
+			return null;
+		}		
+	}
+}

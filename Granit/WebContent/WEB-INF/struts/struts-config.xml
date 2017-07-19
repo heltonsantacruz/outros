@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+          
+<struts-config>
+
+  <!-- Form Bean Definitions -->
+  <form-beans> 
+	<form-bean name="logonForm" type="br.com.granit.apresentacao.logon.LogonForm"/>
+	<form-bean name="usuarioForm" type="br.com.granit.apresentacao.usuario.UsuarioForm"/>
+	<form-bean name="clienteForm" type="br.com.granit.apresentacao.cliente.ClienteForm"/>
+	<form-bean name="produtoForm" type="br.com.granit.apresentacao.produto.ProdutoForm"/>
+	<form-bean name="fornecedorForm" type="br.com.granit.apresentacao.fornecedor.FornecedorForm"/>
+	<form-bean name="pedidoForm" type="br.com.granit.apresentacao.pedido.PedidoForm"/>
+	<form-bean name="vendaForm" type="br.com.granit.apresentacao.venda.VendaForm"/>
+	<form-bean name="backupForm" type="br.com.granit.apresentacao.backup.BackupForm"/>
+	
+	
+  </form-beans>
+
+  <!-- Global Forward Definitions -->
+	<global-forwards>
+		<forward name="index" path="/index.do" />
+        <forward name="erroGeral" path="/index.do" />
+        <forward name="paginaInicial" path="/index.view" />                
+        <forward name="paginaLogon" path="/efetuarLogon.view"/> 
+        <forward name="naoExisteCaixaAberto" path="tela.caixa.nao.aberto"/>
+	   	<forward name="caixaAnteriorNaoFechado" path="tela.caixa.anterior.nao.fechado"/>
+	   	<forward name="funcionalidadeNaoPermitidaParaPerfil" path="/funcionalidadeNaoPermitidaParaPerfil.view"/> 
+    </global-forwards>
+
+  <!-- Action Mapping Definitions -->
+  <action-mappings>
+  
+  	<action path="/index" forward="tela.index" />   
+  	
+  	<action path="/funcionalidadeNaoPermitidaParaPerfil" forward="tela.funcionalidade.nao.permitida.perfil" />
+  	
+  	<action path="/efetuarLogon" forward="tela.logon.abrir" />       
+  	
+  		<action path="/alterarSenha" forward="tela.logon.alterar" />
+  	
+  	<!-- Logon -->
+	  <action name="logonForm" parameter="operacao" 
+	  		  path="/logonAction" scope="session" 
+	   		  type="br.com.granit.apresentacao.logon.LogonAction" 
+	   		  validate="false">
+	   		
+	   		<forward name="abrir" path="tela.logon.abrir"/>   
+	   		<forward name="alterar" path="/alterarSenha.view"/>
+	   		<forward name="logon" path="/index.view"/>	   			   		
+	  </action>	  
+	  
+	  
+	 <!-- Usuario Inicio-->
+	  <action name="usuarioForm" parameter="operacao" 
+	  		  path="/usuarioAction" scope="session" 
+	   		  type="br.com.granit.apresentacao.usuario.UsuarioAction" 
+	   		  validate="false">
+	   		
+	   		<forward name="abrir" path="/formCadastroUsuario.view"/>   
+	   		<forward name="consulta" path="tela.usuario.consulta"/> 	   		
+	   		<forward name="cadastroSucesso" path="tela.sucesso"/>
+	   		<forward name="alterar" path="/formAlteracaoUsuario.view"/>	
+	   		<forward name="detalhar" path="/formDetalharUsuario.view"/>
+	   		
+	  </action>
+     
+	<action path="/formCadastroUsuario"
+    			forward="tela.usuario.cadastramento" />
+   <action path="/formAlteracaoUsuario"
+    			forward="tela.usuario.alteracao" />
+    <action path="/formDetalharUsuario"
+    			forward="tela.usuario.detalhar" />  			
+	  
+	  <!-- Usuario Fim-->
+	  
+	  
+    
+    <!-- Cliente -->
+	  <action name="clienteForm" parameter="operacao" 
+	  		  path="/clienteAction" scope="session" 
+	   		  type="br.com.granit.apresentacao.cliente.ClienteAction" 
+	   		  validate="false">
+	   		
+	   		<forward name="abrir" path="/formCadastroCliente.view"/>   
+	   		<forward name="alterar" path="/formAlteracaoCliente.view"/>
+	   		<forward name="detalhar" path="/formDetalharCliente.view"/>
+	   		<forward name="adicionar" path="/index.view"/>
+	   		<forward name="cancelar" path="/index.view"/>
+	   		<forward name="cadastroSucesso" path="tela.sucesso"/>	
+	   		<forward name="consulta" path="tela.cliente.consulta"/>   		
+	   		<forward name="consultaAbrir" path="/clienteAction.event?operacao=abrirConsulta"/>
+	   		
+	  </action>
+     
+	<action path="/formCadastroCliente"
+    			forward="tela.cliente.cadastramento" />
+    <action path="/formAlteracaoCliente"
+    			forward="tela.cliente.alteracao" />
+    <action path="/formDetalharCliente"
+    			forward="tela.cliente.detalhar" />    
+    			
+    			
+    <!-- Fornecedor -->
+	  <action name="fornecedorForm" parameter="operacao" 
+	  		  path="/fornecedorAction" scope="session" 
+	   		  type="br.com.granit.apresentacao.fornecedor.FornecedorAction" 
+	   		  validate="false">
+	   		
+	   		<forward name="abrir" path="/formCadastroFornecedor.view"/>   
+	   		<forward name="alterar" path="/formAlteracaoFornecedor.view"/>
+	   		<forward name="detalhar" path="/formDetalharFornecedor.view"/>
+	   		<forward name="adicionar" path="/index.view"/>
+	   		<forward name="cancelar" path="/index.view"/>
+	   		<forward name="cadastroSucesso" path="tela.sucesso"/>	
+	   		<forward name="consulta" path="tela.fornecedor.consulta"/>   		
+	   		<forward name="consultaAbrir" path="/fornecedorAction.event?operacao=abrirConsulta"/>
+	   		
+	  </action>
+     
+	<action path="/formCadastroFornecedor"
+    			forward="tela.fornecedor.cadastramento" />
+    <action path="/formAlteracaoFornecedor"
+    			forward="tela.fornecedor.alteracao" />
+    <action path="/formDetalharFornecedor"
+    			forward="tela.fornecedor.detalhar" />     			
+
+   
+   <!-- Actions de Produtos -->  
+    
+	<action path="/formCadastroProduto"
+    			forward="tela.produto.cadastramento" />
+    			
+    <action name="produtoForm" parameter="operacao" 
+	  		  path="/produtoAction" scope="request" 
+	   		  type="br.com.granit.apresentacao.produto.ProdutoAction" 
+	   		  validate="false">
+	   		
+	   		<forward name="abrir" path="/formCadastroProduto.view"/>
+	   		<forward name="adicionar" path="/index.view"/>	   		
+	   		<forward name="cancelar" path="/index.view"/>
+	   		<forward name="consulta" path="tela.produto.consulta"/>
+	   		<forward name="exibir" path="tela.produto.detalhar"/>
+	   		<forward name="editar" path="tela.produto.editar"/>
+	   		<forward name="relatorios" path="tela.produto.relatorios"/>
+	   		<forward name="registrarEntradaSaida" path="tela.produto.registrarEntradaSaida"/>
+	   		<forward name="registroEntradaSaidaProdutosPasso1" path="tela.produto.registroEntradaSaidaProdutosPasso1"/>
+	   		<forward name="registroEntradaSaidaProdutosPasso2" path="tela.produto.registroEntradaSaidaProdutosPasso2"/>
+	   		<forward name="consultaRelatorioEntradaSaida" path="tela.produto.consulta.relatorio.entrada.saida"/>
+	   		
+	   		
+	   		
+	  </action>   		
+   
+   
+   <!-- Pedido -->
+	  <action name="pedidoForm" parameter="operacao" 
+	  		  path="/pedidoAction" scope="request" 
+	   		  type="br.com.granit.apresentacao.pedido.PedidoAction" 
+	   		  validate="false">
+	   		
+	   		<forward name="abrir" path="/formCadastroPedido.view"/>   
+	   		<forward name="alterar" path="/formAlteracaoPedido.view"/>
+	   		<forward name="detalhar" path="/formDetalharPedido.view"/>
+	   		<forward name="adicionar" path="/index.view"/>
+	   		<forward name="cancelar" path="/index.view"/>
+	   		<forward name="cadastroSucesso" path="tela.sucesso"/>	
+	   		<forward name="consulta" path="tela.pedido.consulta"/>   		
+	   		<forward name="consultaAbrir" path="/pedidoAction.event?operacao=abrirConsulta"/>
+	   		
+	  </action>
+	  
+	    
+	<action path="/formCadastroPedido"
+    			forward="tela.pedido.cadastramento" />
+    <action path="/formAlteracaoPedido"
+    			forward="tela.pedido.alteracao" />
+    <action path="/formDetalharPedido"
+    			forward="tela.pedido.detalhar" />    
+	  
+	<!--VENDA  -->
+	<!-- Actions de Vendas -->  
+    
+	
+   	   <action name="vendaForm" parameter="operacao" 
+	  		  path="/vendaAction" scope="session" 
+	   		  type="br.com.granit.apresentacao.venda.VendaAction" 
+	   		  validate="false">
+	   		
+	   		<forward name="abrir" path="tela.venda.cadastramento" />   
+	   		<forward name="continuar" path="tela.venda.cadastramento"/>
+	   		<forward name="continuarAlterar" path="tela.venda.alteracao"/>
+	   		<forward name="cancelar" path="/index.view"/>
+	   		<forward name="avancarParaDetalharVenda" path="/vendaAction.event?operacao=detalhar"/>
+	   		<forward name="detalhar" path="tela.venda.detalhar"/>
+	   		<forward name="abrirConsulta" path="tela.venda.consulta" />   
+	   		<forward name="abrirAlterar" path="tela.venda.alteracao" />   
+	  </action>
+	  
+	  <action name="alterarVendaForm" parameter="operacao" 
+	  		  path="/alterarVendaAction" scope="session" 
+	   		  type="br.com.granit.apresentacao.venda.AlterarVendaAction" 
+	   		  validate="false">
+	   		
+	   		<forward name="abrir" path="tela.venda.alteracao" />   
+	   		<forward name="continuar" path="tela.venda.alteracao"/>
+	   		<forward name="avancarParaFormasPagamento" path="tela.venda.formaspagamemento.alterar"/>
+	   		<forward name="avancarParaFinalizacaoVenda" path="tela.venda.finalizacao.alterar"/>
+	   		<forward name="cancelar" path="/index.view"/>
+	   			   		
+	   		<forward name="naoExisteCaixaAberto" path="tela.caixa.nao.aberto"/>  
+	   		<forward name="caixaJaFechado" path="tela.caixa.ja.fechado"/>
+	   		<forward name="avancarValidacaoInadimplencia" path="tela.venda.validacao.inadimplencia.alterar"/>
+	   		<forward name="voltarParaConsulta" path="/consultaVendaAction.event?operacao=abrir"/>
+	  </action>
+	  
+	   <action name="consultaVendaForm" parameter="operacao" 
+	  		  path="/consultaVendaAction" scope="session" 
+	   		  type="br.com.granit.apresentacao.venda.ConsultaVendaAction" 
+	   		  validate="false">
+	   		
+	   		
+	   		<forward name="detalhar" path="tela.venda.detalhar"/>	 
+	   		<forward name="detalharExcluir" path="tela.venda.detalhar.excluir"/>
+	   		<forward name="ticketVenda" path="tela.venda.ticket"/>  		
+	   		<forward name="cancelar" path="/index.view"/>	   		
+	   		<forward name="consultaParcelaVendas" path="/consultaParcelaVendaAction.event?operacao=processarConsulta"/>
+	   		<forward name="consultaAbrir" path="/consultaVendaAction.event?operacao=processarConsulta"/>
+	   		
+	  </action>   
+    		
+    		
+     <!-- Backup -->
+	  <action name="backupForm" parameter="operacao" 
+	  		  path="/backupAction" scope="session" 
+	   		  type="br.com.granit.apresentacao.backup.BackupAction" 
+	   		  validate="false">   		  
+	   		<forward name="listar" path="tela.listar.backup"/>	   		
+	  </action>
+   
+   
+  </action-mappings>
+
+   <!-- message resources --> 
+   <message-resources parameter="br.com.granit.apresentacao.languages.ApplicationResources"/> 
+	
+
+    <!-- Validator plugin -->
+       
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+	  <set-property property="pathnames" value="/WEB-INF/struts/validator-rules.xml, /WEB-INF/struts/validation.xml"/>
+	</plug-in>
+
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+      <set-property property="definitions-config" value="/WEB-INF/struts/tiles-defs.xml" />
+      <set-property property="moduleAware" value="true" />
+    </plug-in>	
+
+
+    <plug-in className="fr.improve.struts.taglib.layout.workflow.LayoutPlugin"/>
+    
+</struts-config>

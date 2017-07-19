@@ -1,0 +1,225 @@
+#GRANIT APPLICATION MESSAGES!
+
+# General purpose
+
+sessao.expirou=A sessão expirou, efetuar logon novamente.
+confirma.senha.invalida=Os campos Nova Senha e Confirma Nova Senha devem ser iguais.
+senha.atual.incorreta=A senha atual informada está incorreta.
+title.logon=Efetuar Logon
+title.logon.alterar=Alterar Senha
+title.digite.senha=Digite a senha do sistema.
+title.alterar.senha=Digite a nova senha do sistema.
+logon.senha=Senha
+label.novaSenha=Nova Senha
+label.senhaAtual=Senha Atual
+label.confirmaNovaSenha=Confirma nova Senha
+label.confirmaSenha=Confirma Senha
+senha.minimo.caracteres=A senha deve ter no mínimo 6 caracteres.
+
+title=Sistemade Controle Granit
+label.codigo=Código
+label.nome=Nome
+label.bairro=Bairro
+label.logradouro=Endereço
+label.uf=UF
+label.cep=CEP
+label.cidade=Cidade
+label.telefone.residencial=Tel. Residencial
+label.telefone.comercial=Tel. Comercial
+label.telefone.celular=Tel. Celular
+label.telefone.fixo=Tel. Fixo
+label.telefone.fax=Fax
+label.rg=RG
+label.cpfcnpj=CPF/CNPJ
+label.cpf=CPF
+label.cnpj=CNPJ
+label.email=Email
+label.comentarios=Comentários
+btn.adicionar=Adicionar
+btn.imprimir=Imprimir
+btn.registrar=Registrar
+btn.cancelar=Cancelar
+btn.atualizar=Atualizar
+btn.salvar=Salvar
+btn.finalizar=Finalizar
+btn.consultar=Consultar
+btn.fechar=Fechar
+btn.logon=Logar
+btn.adicionarItem=Adicionar Item
+btn.alterarSenha=Alterar Senha
+btn.imprimir=Imprimir
+label.campo.obrigatorio=* Campo obrigat&oacute;rio
+label.descricao=Descrição
+mensagens.alteracaoComSucesso=Alteracao realizada com sucesso!
+erro.campo.maior.igual.zero.monetario=Os campos devem ser maiores ou iguais a zero: {0} 
+erro.campo.maior.zero=Os campos devem ser maiores que zero: {0}
+erro.campo.maior.igual.zero=Os campos devem ser maiores ou iguais a zero: {0}
+label.data.inicio=Data início
+label.data.fim=Data fim
+label.resultado.consulta=Resultado da Consulta
+label.login=Login
+
+
+# Cadastro Usuários
+title.cadastro.usuario=Cadastro de Usuários
+title.dados.usuario=Dados do Usuário
+title.usuario.perfil=Perfil
+title.consulta.usuario=Consulta de Usuários
+title.alteracao.usuario=Alteração de Usuário
+title.detalhar.usuario=Detalhar Usuário
+
+
+
+# Cadastro Cliente
+title.cadastro.cliente=Cadastro de Cliente
+title.alteracao.cliente=Alteração de Cliente
+title.detalhar.cliente=Detalhar Cliente
+title.dados.cliente=Dados do Cliente
+title.codigo=Código
+title.rg.cliente=RG
+title.nome.cliente=Nome
+title.tipo.pessoa.cliente=Tipo
+title.cpfcnpj.cliente=CPF/CNPJ
+title.consulta.cliente=Consulta de Clientes
+title.classificacao.cliente=
+
+
+
+
+
+# Cadastro Fornecedor
+title.cadastro.fornecedor=Cadastro de Fornecedor
+title.alteracao.fornecedor=Alteração de Fornecedor
+title.detalhar.fornecedor=Detalhar Fornecedor
+title.dados.fornecedor=Dados do Fornecedor
+title.codigo=Código
+title.consulta.fornecedor=Consulta de Fornecedores
+label.contato.fornecedor=Contato Fornecedor
+label.produto=Produto
+btn.associar=Associar
+label.produtos.associados=Produtos associados
+label.produto.ja.associado=Produto já associado ao fornecedor
+title.detalhar.fornecedor=Detalhar Fornecedor
+label.produto.associado.compra=Produto não pode ser desassociado pois já existe uma compra feita para a associação do fornecedor/produto
+
+
+
+# Cadastro de pedido
+title.cadastro.pedido=Cadastro de Pedido
+title.dados.pedido=Dados do Pedido
+label.quantidade.produto=Quantidade
+label.preco.produto=Preço
+label.produto.ja.associado.pedido=Produto já associado ao pedido 
+label.desconto.pedido=Desconto
+label.subtotal.pedido=Subtotal
+label.total.pedido=Total
+title.detalhar.pedido=Detalhar Pedido
+label.pedido.subtotal=Subtotal
+label.pedido.desconto=Desconto
+label.pedido.total=Total
+title.consulta.pedido=Consulta de Pedidos
+title.data.pedido=Data do pedido
+title.alteracao.pedido=Alteração de Pedido
+label.mostrar.pedidos.finalizados=Pedidos Finalizados?
+label.produtos.ultimas.compras=Últimas compras
+
+#Vendas
+label.valor.vendas=Valor
+label.avista.vendas=À Vista
+label.cheque.vendas=Cheque
+label.credito.vendas=Crédito
+label.aberto.vendas=Aberto
+label.boleto.vendas=Boleto
+label.subtotal.venda=Subtotal
+label.desconto.venda=Desconto
+label.total.venda=Total
+label.cliente.venda=Cliente
+label.totalizacao.venda=Totalização da Venda
+title.consulta.venda=Consultar Vendas
+
+
+#Mensagens
+erro.dados.invalidos=Dados inválidos: {0}
+operacao.realizada.sucesso=Operação realizada com sucesso.
+cadastro.realizado.sucesso=Cadastro realizado com sucesso.
+msg.alteracao.sucesso=Registro alterado com sucesso.
+msg.exclusao.sucesso=Registro excluído com sucesso.
+erro.campos.obrigatorios=Campos Obrigatórios não informados: {0}
+erro.selecione.entidade=Selecione uma entidade.
+erro.teste=Erro de teste.
+erro.campos.invalidos=Campos Inválidos: {0}
+erro.item.indisponivel=Não há disponibilidade de {0} itens desse produto em estoque. Quantidade atual: {1}
+erro.caixa.sem.recursos=Problemas de caixa: {0} 
+erro.constraint.exclusao=A entidade não poderá ser excluída pois está associada a outras entidades do sistema
+
+#Mensagens de erro de banco de dados
+MSG_ERRO_INSERCAO=Ocorreu um erro ao tentar inserir a entidade no banco de dados.
+MSG_ERRO_ATUALIZACAO=Ocorreu um erro ao tentar atualizar uma entidade no banco de dados.
+MSG_ERRO_REMOCAO=Ocorreu um erro ao tentar remover uma entidade do banco de dados.
+MSG_ERRO_CONSULTA=Ocorreu um erro ao tentar consultar no banco de dados.
+
+
+
+
+erro.operacao.nao.permitida=Operação não permitida para o usuário {0}.
+
+# Cadastro Produto
+title.consulta.produto=Consulta de Produtos
+title.detalhar.produto=Detalhar produto
+title.cadastro.produto=Cadastro de Produtos
+title.dados.produto=Dados do Produto
+label.quantidade.estoque=Quantidade
+label.preco.venda=Preço de Venda
+label.preco.custo=Preço de Custo
+title.alterar.produto=Alteração de Produto
+title.entradasaida.produto=Registro de Entrada/Saída de Estoque do Produto
+label.fornecedores.associados=Fornecedores associados
+label.fornecedor=Fornecedor
+label.fornecedor.ja.associado=Fornecedor já associado ao produto
+label.fornecedor.associado.compra=Fornecedor não pode ser desassociado pois já existe uma compra feita para a associação do fornecedor/produto
+label.tipo=Tipo
+label.subtipo=Subtipo
+label.tipo.materia.prima=Tipo Matéria Prima
+tela.produto.consulta.relatorio.entrada.saida=Relatório de produto entrada/saida
+
+MSG01=Já existe um cliente cadastrado com o mesmo {0}.
+MSG02=Cadastro realizado com sucesso
+MSG03=Deseja excluir o cliente do sistema?)
+MSG04=Cliente removido com sucesso
+MSG05=Esse cliente não pode ser excluído,  possivelmente está associado a alguma venda
+MSG06=Cadastro atualizado com sucesso
+MSG07=Já existe um fornecedor cadastrado com o mesmo CNPJ
+MSG08=Deseja excluir o fornecedor do sistema?
+MSG09=Fornecedor removido com sucesso
+MSG10=Esse fornecedor não pode ser excluído, possivelmente está associado a alguma compra
+MSG11=Já existe um produto cadastrado com a mesma descrição.
+MSG12=Deseja excluir o produto do sistema?
+MSG13=Produto excluído com sucesso.
+MSG14=Esse produto não pode ser excluído, possivelmente está associado a alguma Compra ou Fornecedor
+MSG15=Registro de entrada/saída realizado com sucesso.
+MSG16=Pedido finalizado com sucesso
+MSG16=Pedido finalizado com sucesso
+MSG17=Deseja excluir o pedido do sistema?
+MSG18=Pedido removido com sucesso
+MSG19=Deseja finalizar o pedido?
+MSG20=Venda finalizada com sucesso
+MSG21=Deseja excluir a venda do sistema?
+MSG22=Venda removida com sucesso
+MSG23=Deseja finalizar a venda?
+MSG24=Uma venda finalizada não pode ser excluída do sistema.
+MSG25=Venda alterada para o Status de pendente.
+
+venda.nao.finalizada=Esta venda não pode ser finalizada, algumas informações não foram preenchidas: 
+venda.ja.finalizada=Esta venda não pode ser alterada, pois já está finalizada.
+
+erro.nenhum.produto.selecionado=Nenhum produto Selecionado.
+saidas.registradas.sucesso=Saídas dos produtos registradas com sucesso.
+
+banco.de.dados.expirou=Erro ao conectar com o banco de dados. Tente logar novamente.
+
+item.incluido.sucesso=Item adicionado com sucesso
+item.removido.sucesso=Item removido com sucesso
+
+desconto.aplicado.sucesso=Desconto Aplicado com sucesso
+
+valor.servico.atualizado.sucesso=Valor do Serviço atualizado.

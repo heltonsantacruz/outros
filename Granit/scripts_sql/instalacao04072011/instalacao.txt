@@ -1,0 +1,14 @@
+1)executar os scripts:
+ajustes4casas.sql
+novosPerfisFuncionalidades.sql
+novosTipos.sql
+novosPerfisFuncionalidades.sql
+ajusteCampoDataHistorico.sql
+
+2)para o script sql atualizacoesAndre.sql:
+executar os 3 comandos de alter table
+subir o sistema
+executar os 2 comandos de update
+
+3)
+ 

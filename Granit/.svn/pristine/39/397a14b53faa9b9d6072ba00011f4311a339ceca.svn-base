@@ -1,0 +1,26 @@
+
+-----------------------
+Instalar banco de dados
+-----------------------
+1)Instalar JAVA
+
+2)TOMCAT
+
+3)MySQL --> Seguir createDatabase.txt
+
+4)TeamViewer
+
+5)Tenta logar no sistema e depois executa os scripts
+
+--------------------------------------------------------------------------------------
+Executar scripts após subir o sistema(Ao subir o sistema a base de dados será criada)
+--------------------------------------------------------------------------------------
+6)Executar o script estado.sql
+
+7)Executar o script municipio.sql
+
+8)Executar o script formapagamento.sql
+
+9)Executar o script tiposProdutos.sql
+
+10)Executar o script geracaoPerfis.sql

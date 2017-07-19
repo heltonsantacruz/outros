@@ -1,0 +1,297 @@
+/* Estilos para telas padrão */
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #FFF;
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	color: #000;
+	text-align: center;
+}
+
+td, th {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	color: #000;
+}
+
+img {
+	border: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #4C4436;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #963B24;
+}
+
+iframe {
+	display: block;
+	width: 1000px;
+	margin: auto;
+}
+
+/* Definição de estilos para Conteúdo */
+
+div#conteudo {
+	width: 1000px;
+	height: 100%;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+	background-color: #FFF;
+	text-align: left;
+}
+
+p.pVoltar {
+	display: none;
+}
+
+h1.h1TituloPrincipal {
+	margin: 5px 0px 10px 0px;
+	padding-bottom: 10px;
+	text-align: center;
+	font-size: 16px;
+	border-bottom: 1px dotted #000;
+}
+
+div.rotulo {
+	margin: 0;
+	width: 50%;
+	height: 25px;
+	float: left;
+	text-align: right;
+}
+
+div.campo {
+	margin: 0;
+	width: 49%;
+	height: 25px;
+	float: right;
+}
+
+div.status {
+	background-color: #FFEBC6;
+	color: Red;	
+	font-weight: bold;
+	width: 40%;
+	height: 80px;
+	text-align: center;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+	clear: both;
+	border: 1px solid #92866E;
+}
+
+div.observacao {
+	width: 50%;
+	height: 25px;
+	clear: both;
+	font-style: italic;
+	font-size: 10px;
+	margin: auto;
+	text-align: center;
+}
+
+div.botoes {
+	display: none;
+}
+
+table.tableResultadoConsulta {
+	width: 90%;
+	border-top: 1px solid #000;
+	border-bottom:  1px solid #000;
+	border-collapse: collapse;
+	margin: 0 5%;
+	clear: both;
+}
+
+table.tableResultadoConsulta thead th {
+	border-top: 1px solid #000;
+	color: #FFF;
+	background-color: #92866E;
+	text-align: left;
+}
+
+table.tableResultadoConsulta thead th.thCentral {
+	border-top: 1px solid #000;
+	color: #FFF;
+	background-color: #92866E;
+	text-align: center;
+}
+
+table.tableResultadoConsulta tbody tr.even {
+	border-top: 1px solid #000;
+	background-color: #FFEBC6;
+}
+
+table.tableResultadoConsulta tbody tr.odd {
+	border-top: 1px solid #000;
+	background-color: #D4C2A0;	
+}
+
+table.tableResultadoConsulta tbody td.tdCentral {
+	text-align: center;
+}
+
+input {
+	border: 1px solid #000;	
+	font-size: 12px;
+}
+
+input[type=checkbox], input[type=radio] {
+	border: 0;
+	width: auto;
+}
+
+select {
+	font-size: 12px;
+	border: 1px solid #000;	
+}
+
+textarea {
+	font-size: 12px;
+	border: 1px solid #000;
+}
+
+option {
+	font-size: 12px;
+}
+
+fieldset {
+	width: 95%;
+	margin: auto;
+	border: 1px solid #000;
+}
+
+legend {
+	font-size: 12px;
+	font-weight: bold;
+	color: #000;
+}
+
+
+/* Fim Conteúdo */
+
+/* Definicao de estilos para Topo */
+iframe#iframeTopo {
+	display: none;
+}
+
+div#topo {
+	display: none;
+}
+/* Fim Topo */
+
+/* Definicao de estilos para Cabecalho */
+iframe#iframeCabecalho {
+	display: none;
+}
+
+div#cabecalho {
+	display: none;
+}
+/* Fim Cabeçalho */
+
+/* Definiçao de estilos para Menu */
+div#menu {
+	display: none;
+}
+/* Fim Menu */
+
+/* Definição de estilos para Navegação */
+div#navegacao {
+	display: none;
+}
+/* Fim Navegação */
+
+/* Definição de estilos para Rodapé */
+iframe#iframeRodape {
+	display: none;
+}
+
+div#rodape {
+	display: none;
+/* Fim Rodapé */
+
+/* Cadastro com duas colunas */
+
+div.coluna_esq {
+	float: left;
+	width: 35%;
+	height: 25px;
+	margin-top:5px;
+	margin-left: 50px;
+}
+
+div.coluna_dir {
+	float: right;	
+	width: 35%;
+	height: 25px;	
+	margin-top: 5px;
+	margin-right: 50px;
+}
+
+div.rotulo_b {
+	margin: 0;
+	width: 60%;
+	height: 25px;
+	float: left;
+	text-align: left;
+}
+
+div.campo_b {
+	margin: 0;
+	width: 40%;
+	height: 25px;
+	float: right;
+}
+
+/* Fim duas colunas */
+
+/* Linha com número variado de colunas */
+
+div.linha {
+	width: 98%;
+	height: 25px;
+	margin: auto;
+}
+
+div.coluna_1 {
+	float: left;
+	text-align: left;
+	width: 30%;
+	height: 25px;
+}
+
+div.coluna_2 {
+	float: right;
+	text-align: left;
+	width: 70%;
+	height: 25px;
+}
+
+div.coluna_3 {
+	float: left;
+	text-align: left;
+	width: 50%;
+	height: 25px;
+}
+
+div.coluna_4 {
+	float: right;
+	text-align: left;
+	width: 49.99%;
+	height: 25px;
+}
+
+/* Fim linha com número variado de colunas */
