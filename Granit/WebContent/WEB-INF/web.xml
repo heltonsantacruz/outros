@@ -17,6 +17,12 @@
      </init-param>  
     <load-on-startup>2</load-on-startup>
  </servlet>
+ 
+ <listener>
+  	<listener-class>
+  		br.com.granit.util.TimerListener
+  	</listener-class>
+  </listener>
   
   <!--  2 horas  -->
  <session-config>  

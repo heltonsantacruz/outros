@@ -1,8 +1,11 @@
 package br.com.granit.apresentacao.backup;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,7 +32,7 @@ public class BackupAction extends PrincipalAction {
 	public ActionForward criarBackup(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response) {
 		try {
-			String filePath = "C://backupGranit";
+			String filePath = "C://backupGranit//";
 			File file = new File(filePath);
 			if (!file.exists()) {
 				file.mkdirs();
@@ -38,25 +41,37 @@ public class BackupAction extends PrincipalAction {
 					Formatador.FORMATO_DATA_HORA_BACKUP);
 			
 			String nomeDatatabeFile = "backup" + data + ".sql";			
-			File databaseBackupFile = new File(filePath + File.separator + nomeDatatabeFile);
+			//File databaseBackupFile = new File(filePath + File.separator + nomeDatatabeFile);
+			//String cmd = "cmd.exe /c mysqldump -ugranit -pgr@n!t granitdb > "
+			//		+ databaseBackupFile.getAbsolutePath();
+			
+			
+			String cmd = "mysqldump";
+			ProcessBuilder pb = new ProcessBuilder(cmd, "--user=granit", "--password=gr@n!t", "granitdb", "--result-file=" + (filePath+nomeDatatabeFile));
+            pb.start();
+			
+			
 
-			String cmd = "cmd.exe /c mysqldump -ugranit -pgr@n!t granitdb > "
-					+ databaseBackupFile.getAbsolutePath();
-
-			if (!databaseBackupFile.isFile()) {
-				Runtime.getRuntime().exec(cmd);
-			} else {
-				int numerodobackup = 1;
-				while (databaseBackupFile.isFile()) {
-					numerodobackup++;
-					databaseBackupFile = new File(filePath
-							+ File.separator
-							+ nomeDatatabeFile.replace(".sql", "_" + numerodobackup
-									+ ".sql"));
-				}
-				cmd = "cmd /c mysqldump -ugranit -pgr@n!t granitdb > "
-						+ databaseBackupFile.getAbsolutePath();
-			}
+//			if (!databaseBackupFile.isFile()) {
+//				Process processo = Runtime.getRuntime().exec(cmd);
+//				BufferedReader in = new BufferedReader(
+//                        new InputStreamReader(processo.getInputStream()));
+//			    String line = null;
+//			    while ((line = in.readLine()) != null) {
+//			        System.out.println(line);
+//			    }
+//			} else {
+//				int numerodobackup = 1;
+//				while (databaseBackupFile.isFile()) {
+//					numerodobackup++;
+//					databaseBackupFile = new File(filePath
+//							+ File.separator
+//							+ nomeDatatabeFile.replace(".sql", "_" + numerodobackup
+//									+ ".sql"));
+//				}
+//				cmd = "cmd /c \"mysqldump -ugranit -pgr@n!t granitdb > "
+//						+ databaseBackupFile.getAbsolutePath() + "\"";
+//			}
 			adicionaMensagem(request, Constantes.MSG_OPERACAO_SUCESSO);
 		} catch (IOException e) {
 			e.printStackTrace();
